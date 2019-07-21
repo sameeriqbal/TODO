@@ -11,10 +11,13 @@ The API declaration is separated from the network related configuration (port, p
 Used Async-Await or promises for async error handling which allows freeing the main code path from dealing with errors in every function
 
 # v. Document API
-For reusability and for collabrative development i documented all of my apis using POSTMAN.
+For testing and collabrative development i documented all of my apis using POSTMAN.
 
-#vi. Security Best Practices
+# vi. Security Best Practices
 1- Rate limiting is implemented in application so it avoid from being overwhelmed by too many requests at the same time (DOS attack). 
 2- App is using secure headers to prevent attackers from using common attacks like cross-site scripting (XSS), clickjacking and other malicious attacks. These is configured using helmet module.
 3-Validated incoming JSON schemas of request body and header.
-4- Extracted secrets from config files which is in gitignore
+4- Extracted secrets from config files which are in gitignore
+
+# vii. Testing And Quality 
+

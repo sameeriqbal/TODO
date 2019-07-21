@@ -1,6 +1,7 @@
 const express = require("express");
 const auth = require('../../helpers/firebase').auth
 const userService = require('./userService')
+const userDAL = require('./userDAL')
 const usersRouter = express();
 usersRouter.post('/create', async (req, res, next) => {
     try {
@@ -9,8 +10,8 @@ usersRouter.post('/create', async (req, res, next) => {
         const firstname = req.body.firstname;
         const lastname = req.body.lastname;
         const phone = req.body.phone;
-        const newUser = await userService.Create(email, password, firstname, lastname, phone)
-        res.json(newUser)
+        const data = await userService.Create(email, password, firstname, lastname, phone, userDAL.Save)
+        res.json(data)
     }
     catch (error) {
         res.json({ errorCode: error.code, errorMessage: error.message })
@@ -20,7 +21,6 @@ usersRouter.post('/signIn', async (req, res, next) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-       
         const loggedinUser = await userService.Login(email, password)
         res.json(loggedinUser)
     }
@@ -31,7 +31,7 @@ usersRouter.post('/signIn', async (req, res, next) => {
 usersRouter.post('/sendPasswordResetEmail', async (req, res, next) => {
     try {
         const email = req.body.email;
-        await auth.sendPasswordResetEmail(email)
+        await userService.Reset(email)
         res.json({ 'message': 'Email Sent.' })
     }
     catch (error) {
