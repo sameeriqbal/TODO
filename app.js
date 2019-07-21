@@ -1,8 +1,8 @@
 const express = require("express");
 app = express()
 const validate = require('express-validation')
-const users = require('./components/users/usersRouter');
-const lists = require('./components/lists/listsRouter');
+const users = require('./components/user/userRouter');
+const lists = require('./components/list/listRouter');
 const todo = require('./components/todo/todoRouter');
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
