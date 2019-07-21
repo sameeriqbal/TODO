@@ -14,10 +14,14 @@ Used Async-Await or promises for async error handling which allows freeing the m
 For testing and collabrative development i documented all of my apis using POSTMAN.
 
 # vi. Security Best Practices
-1- Rate limiting is implemented in application so it avoid from being overwhelmed by too many requests at the same time (DOS attack). 
-2- App is using secure headers to prevent attackers from using common attacks like cross-site scripting (XSS), clickjacking and other malicious attacks. These is configured using helmet module.
-3-Validated incoming JSON schemas of request body and header.
+1- Rate limiting is implemented in application so it avoid from being overwhelmed by too many requests at the same time (DOS attack).<br> 
+2- App is using secure headers to prevent attackers from using common attacks like cross-site scripting (XSS), clickjacking and other malicious attacks. These is configured using helmet module.<br> 
+3-Validated incoming JSON schemas of request body and header.<br> 
 4- Extracted secrets from config files which are in gitignore
 
 # vii. Testing And Quality 
+API testing using superagent is implemented and Unit Test are written using the JEST framework keeping the Arrange , Act and Assert principles in mind.
+
+# viii. Code Style Practices
+ESlint is used for checking possible code errors and fixing code style
 
